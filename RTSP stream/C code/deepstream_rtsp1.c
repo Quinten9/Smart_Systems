@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Set RTSP input source URI
-    g_object_set(source, "location", "rtsp://192.168.0.103:8554/stream", "timeout", (guint64)30 * GST_SECOND, NULL);
+    g_object_set(source, "location", "rtsp://192.168.2.11:554/stream2", "timeout", (guint64)30 * GST_SECOND, NULL);
 
     // Create the pipeline and add elements
     pipeline = gst_pipeline_new("rtsp-in-out-pipeline");
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 
     // Set up the RTSP media factory to output the processed stream
     gst_rtsp_media_factory_set_launch(factory, 
-        "( rtspsrc location=rtsp://192.168.0.103:8554/stream ! rtph264depay ! avdec_h264 ! videoconvert ! x264enc ! rtph264pay name=pay0 pt=96 )");
+        "( rtspsrc location=rtsp://192.168.2.11:554/stream2 ! rtph264depay ! avdec_h264 ! videoconvert ! x264enc ! rtph264pay name=pay0 pt=96 )");
 
     GstRTSPMountPoints *mounts = gst_rtsp_server_get_mount_points(server);
     gst_rtsp_mount_points_add_factory(mounts, "/ds-test", factory);  // Change '/output' to '/ds-test'
