@@ -1,0 +1,11 @@
+names:
+  0: Twix
+  1: Mars
+  2: Snickers
+  3: Bounty
+  4: Galaxy
+  5: Galaxy-Caramel
+  6: Milky-Way
+  7: Maltesers
+path: .
+train: train.txt
